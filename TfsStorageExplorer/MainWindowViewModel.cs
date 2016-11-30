@@ -78,13 +78,13 @@ namespace TfsStorageExplorer
                 this.StatusText = "Loading...";
                 var serverUri = new Uri(this.TeamProjectCollectionUrl);
                 this.service = new FileContainerHttpClient(serverUri, new VssCredentials(true));
-                var containers = await service.QueryContainersAsync(null);
+                var containers = await this.service.QueryContainersAsync(null, Guid.Empty);
                 this.Nodes.Clear();
                 foreach (var container in containers.OrderBy(c => c.Name))
                 {
                     if (!IgnoreBuildLogs || !container.ArtifactUri.ToString().StartsWith("vstfs:///Build/Build/", StringComparison.OrdinalIgnoreCase))
                     {
-                        this.Nodes.Add(new ContainerTreeNode(service, container));
+                        this.Nodes.Add(new ContainerTreeNode(this.service, container));
                     }
                 }
                 this.StatusText = string.Format(CultureInfo.CurrentCulture, "Loaded {0} container(s) from \"{1}\"", this.Nodes.Count, serverUri.ToString());
@@ -121,7 +121,7 @@ namespace TfsStorageExplorer
                     foreach (var file in files)
                     {
                         var fileName = Path.Combine(rootFolder, StorageTreeNode.GetName(file.Path));
-                        using (var fileStream = await this.service.DownloadFileAsync(file.ContainerId, file.Path, cancellationToken))
+                        using (var fileStream = await this.service.DownloadFileAsync(file.ContainerId, file.Path, cancellationToken, file.ScopeIdentifier))
                         using (var fileStreamWriter = File.OpenWrite(fileName))
                         {
                             await fileStream.CopyToAsync(fileStreamWriter);

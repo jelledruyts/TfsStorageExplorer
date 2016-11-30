@@ -24,7 +24,7 @@ namespace TfsStorageExplorer
         protected async override void LoadChildren()
         {
             MainWindowViewModel.Instance.StatusText = "Loading...";
-            var items = await this.Service.QueryContainerItemsAsync(this.Container.Id);
+            var items = await this.Service.QueryContainerItemsAsync(this.Container.Id, this.Container.ScopeIdentifier);
             this.Children.Clear();
             var numFiles = 0;
             var numFolders = 0;
