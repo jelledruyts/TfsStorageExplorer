@@ -1,20 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TfsStorageExplorer", "TfsStorageExplorer\TfsStorageExplorer.csproj", "{2DC22A47-7D18-4C19-B4DB-DA3A946584B4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36E812B3-85D4-4BF9-85D7-F62B7DFECD6E}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{B4F9DFAB-0AE6-4760-821A-DF43C03B39A2}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\TfsStorageExplorer.png = Documentation\TfsStorageExplorer.png
+	EndProjectSection
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs06
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = TfsStorageExplorer\\TfsStorageExplorer.csproj
-		SccProjectName1 = TfsStorageExplorer
-		SccLocalPath1 = TfsStorageExplorer
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

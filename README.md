@@ -1,1 +1,1 @@
-# TfsStorageExplorer 
+![TFS Storage Explorer](Documentation/TfsStorageExplorer.png "TFS Storage Explorer")
