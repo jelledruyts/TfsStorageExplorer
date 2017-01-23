@@ -1,5 +1,5 @@
 ﻿using Microsoft.TeamFoundation.Client;
-using Microsoft.VisualStudio.Services.Common;
+using Microsoft.VisualStudio.Services.Client;
 using Microsoft.VisualStudio.Services.FileContainer.Client;
 using System;
 using System.Collections.Generic;
@@ -77,7 +77,7 @@ namespace TfsStorageExplorer
             {
                 this.StatusText = "Loading...";
                 var serverUri = new Uri(this.TeamProjectCollectionUrl);
-                this.service = new FileContainerHttpClient(serverUri, new VssCredentials(true));
+                this.service = new FileContainerHttpClient(serverUri, new VssClientCredentials());
                 var containers = await this.service.QueryContainersAsync(null, Guid.Empty);
                 this.Nodes.Clear();
                 foreach (var container in containers.OrderBy(c => c.Name))
